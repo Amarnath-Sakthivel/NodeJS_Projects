@@ -2,7 +2,7 @@
 
 const config = require("../lib/config");
 
-const authorizeUser = (req, res, next) => {
+const validateToken = (req, res, next) => {
   var err = new Error();
   err.status = 401;
   err.message = "Un-Authorized user";
@@ -30,4 +30,4 @@ const authorizeUser = (req, res, next) => {
 
 };
 
-module.exports = authorizeUser;
+module.exports = validateToken;

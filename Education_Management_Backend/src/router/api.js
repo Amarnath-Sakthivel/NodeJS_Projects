@@ -1,4 +1,4 @@
-const authorizeUser = require('../controller/auth');
+const validateToken = require('../controller/auth');
 const { createUser, fetchAllUser, fetchUserByID, isValidUser, updatePassword } = require('../controller/userModel');
 const { errorHandlingMiddleware } = require('../middleware/errorHandler');
 
@@ -10,7 +10,7 @@ const router = require('express').Router();
 
 
 //routes
-router.use(authorizeUser)
+router.use(validateToken)
 router.post('/signup', createUser)
 router.get('/signin', isValidUser)
 router.get('/users',fetchAllUser)
