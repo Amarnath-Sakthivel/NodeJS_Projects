@@ -11,7 +11,7 @@ const router = require('express').Router();
 
 //routes
 router.use(authorizeUser)
-router.post('/register', createUser)
+router.post('/signup', createUser)
 router.get('/allUser',fetchAllUser)
 router.use(errorHandlingMiddleware)
 
