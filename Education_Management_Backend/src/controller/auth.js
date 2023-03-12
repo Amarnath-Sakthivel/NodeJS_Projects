@@ -25,7 +25,7 @@ const authorizeUser = (req, res, next) => {
 
     let password = decodeBase64.toString().split(':')[1];   //get password
 
-    res.send(username==technicaluser && password == technicalUserPass ? {message:"success"} : next(err));
+    username==technicaluser && password == technicalUserPass ? next() : next(err);
   }
 
 };
