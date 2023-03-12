@@ -42,8 +42,8 @@ const fetchAllUser = async (req, res, next) => {
  *
  */
 const fetchUserByID = (req, res, next) => {
-  dbConnection().connect(function (err) {
-    if (err) next(err);
+ 
+
     dbConnection().query(
       `SELECT * FROM student WHERE username = '${req.query.email}'`,
       function (err, result) {
@@ -51,7 +51,7 @@ const fetchUserByID = (req, res, next) => {
         res.json({ user: result });
       }
     );
-  });
+
 };
 
 /**
@@ -65,8 +65,8 @@ const fetchUserByID = (req, res, next) => {
 
 const isValidUser = (req, res, next) => {
   var error = new Error();
-  dbConnection().connect(function (err) {
-    if (err) next(err);
+  
+
     dbConnection().query(
       `SELECT * FROM student WHERE username = '${req.headers.username}' AND password='${req.headers.password}'`,
       function (err, result) {
@@ -80,12 +80,12 @@ const isValidUser = (req, res, next) => {
         }
       }
     );
-  });
+
 };
 
 const updatePassword = (req, res, next) => {
-  dbConnection().connect(function (err) {
-    if (err) next(err);
+
+
     dbConnection().query(
       `UPDATE student SET password = '${req.headers.password}' WHERE username = '${req.headers.username}'`,
       function (err, result) {
@@ -93,7 +93,7 @@ const updatePassword = (req, res, next) => {
         res.json({ message: true });
       }
     );
-  });
+
 };
 
 module.exports = { createUser, fetchAllUser, fetchUserByID, isValidUser, updatePassword };
