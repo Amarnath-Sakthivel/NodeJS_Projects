@@ -1,0 +1,3 @@
+#ignore files
+/Education_Management_Backend/node_modules/
+/Education_Management_Backend/.env
